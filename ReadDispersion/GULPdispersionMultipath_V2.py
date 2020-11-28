@@ -33,15 +33,18 @@ class GulpDisp(object):
 		plt.show()
 		return 
 
-# *************Main Program************* #
-# The number of atoms in the primitive cell
-number_atom = 240
-# plot x y range and line width
-xmin,xmax = [0,1]
-ymin,ymax = [0,2]
-linewidth = 2
 
-gulp = GulpDisp()
-# gulp.ReadKpoint('C3NGRAdispersion.disp',number_atom)
-gulp.Readata('20_5x8_S209.disp',number_atom)
-gulp.Plot(xmin,xmax,ymin,ymax,linewidth,dpi=300,save=True)
+# *************Main Program************* #
+# The number of atoms in the primitive cell.
+if __name__ == '__main__':
+	
+	number_atom = 147#240
+	# plot x y range and line width
+	xmin,xmax = [0,1]
+	ymin,ymax = [0,2]
+	linewidth = 2
+
+	gulp = GulpDisp()
+	# gulp.ReadKpoint('C3NGRAdispersion.disp',number_atom)
+	gulp.Readata('25_4x8_defect.disp',number_atom)
+	gulp.Plot(xmin,xmax,ymin,ymax,linewidth,dpi=300,save=True)
