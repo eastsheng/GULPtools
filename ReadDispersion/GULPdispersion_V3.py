@@ -47,6 +47,8 @@ class GulpDisp(object):
 		plt.plot(WaveVector,Frequency,'b',linewidth=linewidth)
 		ax.set_xlabel('Wave Vector',fontsize=32,fontweight='bold')
 		ax.set_ylabel('Frequency (THz)',fontsize=32)
+		plt.xticks(size=8)
+		plt.yticks(size=22)
 		plt.xlim(xmin,xmax)
 		plt.ylim(ymin,ymax)
 		if save == True:
@@ -68,12 +70,14 @@ class GulpDisp(object):
 		self.Frequency = Frequency/33.36 # CM-1 >> THz	
 		# print(Frequency.shape)
 		# Plot
-		plt.rc('font',family='Times New Roman',size=24)
+		# plt.rc('font',family='Times New Roman')
 		fig,ax = plt.subplots(figsize = (6,8))
 		fig.subplots_adjust(bottom=0.1,left=0.2)
 		plt.plot(self.WaveVector,self.Frequency,'b',linewidth=linewidth)
 		ax.set_xlabel('Wave Vector',fontsize=26,fontweight='bold')
 		ax.set_ylabel('Frequency (THz)',fontsize=26,fontweight='bold')
+		plt.xticks(size=24)
+		plt.yticks(size=24)
 		plt.xlim(xmin,xmax)
 		plt.ylim(ymin,ymax)
 		if save == True:
