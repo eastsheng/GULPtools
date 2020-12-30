@@ -33,18 +33,18 @@ class GulpDisp(object):
 		line_number = int(len_data/self.number_atom/3)
 		
 		# WaveVector = self.K*(np.unique(self.data[:,0]-1)/(len_data/line_number))
-		WaveVector = np.linspace(0,1,line_number)
+		self.WaveVector = np.linspace(0,1,line_number)
 		Frequency = self.data[:,1].reshape((line_number,self.number_atom*3))
-		Frequency = Frequency/33.36 # CM-1 >> THz
+		self.Frequency = Frequency/33.36 # CM-1 >> THz
 		
-		print(Frequency.shape)
-		print(WaveVector.shape)
+		print(self.Frequency.shape)
+		print(self.WaveVector.shape)
 		
 		# Plot
 		plt.rc('font',family='Times New Roman',size=16)
 		fig,ax = plt.subplots(figsize = (6,8))
 		fig.subplots_adjust(bottom=0.1,left=0.2)
-		plt.plot(WaveVector,Frequency,'b',linewidth=linewidth)
+		plt.plot(self.WaveVector,self.Frequency,'b',linewidth=linewidth)
 		ax.set_xlabel('Wave Vector',fontsize=32,fontweight='bold')
 		ax.set_ylabel('Frequency (THz)',fontsize=32)
 		plt.xticks(size=8)
@@ -56,7 +56,6 @@ class GulpDisp(object):
 		plt.show()
 
 		return 
-
 
 	def PlotMultipath(self,xmin,xmax,ymin,ymax,linewidth,dpi=300,save=True):
 		self.data = np.loadtxt(self.disp_data)
@@ -72,7 +71,7 @@ class GulpDisp(object):
 		# Plot
 		# plt.rc('font',family='Times New Roman')
 		fig,ax = plt.subplots(figsize = (6,8))
-		fig.subplots_adjust(bottom=0.1,left=0.2)
+		fig.subplots_adjust(bottom=2,left=1)
 		plt.plot(self.WaveVector,self.Frequency,'b',linewidth=linewidth)
 		ax.set_xlabel('Wave Vector',fontsize=26,fontweight='bold')
 		ax.set_ylabel('Frequency (THz)',fontsize=26,fontweight='bold')
@@ -88,8 +87,10 @@ class GulpDisp(object):
 	def save_disper(self,):
 		x = self.WaveVector
 		y = self.Frequency
-		disper = np.hstack((x,y))
-		np.savetxt('sort_disper.txt',disper,fmt='%f %f')
+		# print(x.shape,y.shape)
+		lx = len(x)
+		disper = np.hstack((x.reshape(lx,1),y))
+		np.savetxt('sort_disper.txt',disper,fmt='%f')
 		return
 
 # *************Main Program************* #
