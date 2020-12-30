@@ -47,8 +47,7 @@ class GulpDisp(object):
 		plt.plot(self.WaveVector,self.Frequency,'b',linewidth=linewidth)
 		ax.set_xlabel('Wave Vector',fontsize=32,fontweight='bold')
 		ax.set_ylabel('Frequency (THz)',fontsize=32)
-		plt.xticks(size=8)
-		plt.yticks(size=22)
+
 		plt.xlim(xmin,xmax)
 		plt.ylim(ymin,ymax)
 		if save == True:
