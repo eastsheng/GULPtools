@@ -25,7 +25,7 @@ def Plot(x,y,c,xmin,xmax,ymin,ymax):
 	plt.rc('font', family='Times New Roman', size=16)
 	plt.plot(x,y,c)
 	plt.xlabel("Frequency (THz)")
-	plt.ylabel("Group Velocity (m/s)")
+	plt.ylabel("Group Velocity (km/s)")
 	plt.xlim(xmin,xmax)
 	plt.ylim(ymin,ymax)
 	return
